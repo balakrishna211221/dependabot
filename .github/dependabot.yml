@@ -1,0 +1,9 @@
+version: 2
+updates:
+  - package-ecosystem: pip # Python package manager
+    directory: "/" # Directory where your `requirements.txt` file is located
+    schedule:
+      interval: weekly # Frequency of checks (options: daily, weekly, monthly)
+    open-pull-requests-limit: 5 # Max number of open PRs
+    commit-message:
+      prefix: "deps" # Prefix for PR titles

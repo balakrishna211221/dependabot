@@ -2,10 +2,10 @@ name: "Dependency Update"
 
 on:
   schedule:
-    - cron: '0 0 * * 1'  # This will run every Monday at midnight
+    - cron: '* * * * *'  # This will run every Monday at midnight
   push:
     branches:
-      - main
+      - master
 
 jobs:
   dependabot:

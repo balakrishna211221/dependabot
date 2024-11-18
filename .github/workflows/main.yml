@@ -1,15 +1,16 @@
-name: "Dependency Update"
+name: "Test Dependency Updates"
 
 on:
   schedule:
-    - cron: '* * * * *'  # This will run every Monday at midnight
+    - cron: "* * * * *"  # Every minute
   push:
     branches:
       - master
 
 jobs:
-  dependabot:
+  test:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -17,7 +18,12 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
+          python-version: '3.12'
+
+      - name: Install distutils
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-distutils  # Install distutils package
 
       - name: Install dependencies
         run: |
@@ -25,6 +31,6 @@ jobs:
           source venv/bin/activate
           pip install -r requirements.txt
 
-      - name: Update dependencies with Dependabot
+      - name: Run tests
         run: |
-          dependabot update
+          pytest  # Replace with your test command

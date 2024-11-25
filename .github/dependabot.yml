@@ -5,6 +5,6 @@ updates:
     schedule:
       interval: weekly # Frequency of checks (options: daily, weekly, monthly)
     open-pull-requests-limit: 5 # Max number of open PRs
-    target-branch: "test_dependatbot"
+    target-branch: "develop"
     commit-message:
       prefix: "deps" # Prefix for PR titles
